@@ -1,0 +1,70 @@
+/*
+* 
+* Advanced C Programming Masterclass: Pointers & Memory in C
+* 
+* @theme Structs - Struct Alignment
+* @brief Data Alignement and Padding with Struct Composition
+* @author Vlad Budnitski 
+* @date 14/03/2023
+* 
+*/
+
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+typedef struct a
+{
+    short val1;
+    int val2;
+    char val3;
+
+}A;
+
+typedef struct b
+{
+    char valb1;
+    int valb2;
+    A valb3;
+
+}B;
+
+
+
+
+int main()
+{
+
+    unsigned int totalStructByte1 = sizeof(A);
+    unsigned int totalStructByte2 = sizeof(B);
+    A a1;
+    B b1;
+
+    b1.valb1 = 0xFF;
+    b1.valb2 = 0x12341234;
+    b1.valb3.val1 = 0x8800;
+    b1.valb3.val2 = 0xAACCEEFF;
+    b1.valb3.val3 = 0x99;
+  
+    printf("size of A = %d\n", totalStructByte1);
+    printf("size of B = %d\n", totalStructByte2);
+
+    return 0;
+}
+
+
+
+
+
+    
+
+
+
+
+
+
+
