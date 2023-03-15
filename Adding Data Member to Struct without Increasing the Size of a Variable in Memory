@@ -1,0 +1,70 @@
+/*
+* 
+* Advanced C Programming Masterclass: Pointers & Memory in C
+* 
+* @theme Structs - Struct Alignment
+* @brief Adding Data Member to Struct without Increasing the Size of a Variable in Memory
+* @author Vlad Budnitski 
+* @date 14/03/2023
+* 
+*/
+
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+typedef struct point1
+{
+    char t;
+    char x;
+    short y;
+    double z;
+
+}POINT1;
+
+typedef struct point2
+{
+    char x;
+    char y;
+    double z;
+
+}POINT2;
+
+
+
+
+int main()
+{
+
+    unsigned int totalStructByte1 = sizeof(POINT1);
+    unsigned int totalStructByte2 = sizeof(POINT2);
+    POINT1 p1;
+    POINT2 p2;
+
+    p1.t = 0x11; // 1 byte of memory
+    p1.x = 0xEE; // 1 byte of memory
+    p1.y = 0xAABB; // 2 bytes of memory
+    p1.z = 0x123456789ABCD; // 8 bytes of memory
+    
+
+    printf("size of POINT1 = %d\n", totalStructByte1);
+    printf("size of POINT2 = %d\n", totalStructByte2);
+
+    return 0;
+}
+
+
+
+
+
+    
+
+
+
+
+
+
