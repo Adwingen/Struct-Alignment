@@ -1,0 +1,67 @@
+/*
+* 
+* Advanced C Programming Masterclass: Pointers & Memory in C
+* 
+* @theme Structs - Struct Alignment
+* @brief Exercice 1 - Reorganizing Members Order and its Affect On Memory Utilization
+* @author Vlad Budnitski 
+* @date 14/03/2023
+* 
+*/
+
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+typedef struct point1
+{
+    char x;
+    double y;
+    char z;
+
+}POINT1;
+
+typedef struct point2
+{
+    char x;
+    char y;
+    double z;
+
+}POINT2;
+
+
+
+
+int main()
+{
+
+    unsigned int totalStructByte1 = sizeof(POINT1);
+    unsigned int totalStructByte2 = sizeof(POINT2);
+    POINT1 p1;
+    POINT2 p2;
+
+    p1.x = 0xFF; // 1 byte of memory
+    p1.y = 0x123456789ABCD; // 8 bytes of memory
+    p1.z = 0x6789ABCD; // 4 bytes of memory
+
+    printf("size of POINT1 = %d\n", totalStructByte1);
+    printf("size of POINT2 = %d\n", totalStructByte2);
+
+    return 0;
+}
+
+
+
+
+
+    
+
+
+
+
+
+
