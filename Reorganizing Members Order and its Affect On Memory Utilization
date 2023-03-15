@@ -1,0 +1,54 @@
+/*
+* 
+* Advanced C Programming Masterclass: Pointers & Memory in C
+* 
+* @theme Structs - Struct Alignment
+* @brief Reorganizing Members Order and its Affect On Memory Utilization
+* @author Vlad Budnitski 
+* @date 14/03/2023
+* 
+*/
+
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+typedef struct point
+{
+    char x;
+    int z;
+    double y;
+
+}POINT;
+
+
+
+
+int main()
+{
+
+    unsigned int totalStructByte = sizeof(POINT);
+    POINT p1;
+
+    p1.x = 0xFF; // 1 byte of memory
+    p1.y = 0x123456789ABCD; // 8 bytes of memory
+    p1.z = 0x6789ABCD; // 4 bytes of memory
+
+    return 0;
+}
+
+
+
+
+
+    
+
+
+
+
+
+
